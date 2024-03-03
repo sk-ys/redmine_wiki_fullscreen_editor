@@ -1,0 +1,17 @@
+<% content_for :header_tags do %>
+  <script>
+    var WikiFullscreenEditor = {
+      config: {
+        resources: {
+          text: {
+            enableFullscreenMode: "<%= t(:enable_fullscreen_mode, scope: :wiki_fullscreen_editor) %>",
+            disableFullscreenMode: "<%= t(:disable_fullscreen_mode, scope: :wiki_fullscreen_editor) %>",
+            sideBySideMode: "<%= t(:side_by_side, scope: :wiki_fullscreen_editor) %>",
+          }
+        }
+      }
+    }
+  </script>
+  <%= javascript_include_tag "wiki_fullscreen_editor", plugin: "redmine_wiki_fullscreen_editor" %>
+  <%= stylesheet_link_tag "wiki_fullscreen_editor", plugin: "redmine_wiki_fullscreen_editor" %>
+<% end %>

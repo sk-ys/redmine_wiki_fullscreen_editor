@@ -1,0 +1,6 @@
+# English strings go here for Rails i18n
+en:
+  wiki_fullscreen_editor:
+    enable_fullscreen_mode: Enable full-screen mode
+    disable_fullscreen_mode: Disable full-screen mode
+    side_by_side: Side by side

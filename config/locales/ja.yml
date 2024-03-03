@@ -1,0 +1,6 @@
+# Japanese strings go here for Rails i18n
+ja:
+  wiki_fullscreen_editor:
+    enable_fullscreen_mode: フルスクリーン有効化
+    disable_fullscreen_mode: フルスクリーン無効化
+    side_by_side: 左右に並べて表示
