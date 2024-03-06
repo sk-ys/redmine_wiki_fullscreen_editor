@@ -17,7 +17,7 @@
 }
 
 html:has(.jstBlock.fullscreen) {
-  overflow: hidden;
+  overflow: hidden !important;
 
   & > body > :is(.ui-menu, .table-generator) {
     z-index: 100;
@@ -162,7 +162,11 @@ html:has(.jstBlock.fullscreen) {
 /* Mobile device support */
 @media screen and (max-width: 899px) {
   .jstBlock.fullscreen {
-    height: calc(100vh - 40px);
+    /* 64px is header height in mobile view */
+    top: 64px !important;
+    
+    /* 40px is #disable-wiki-fullscreen-editor-bar height in mobile view */
+    height: calc(100vh - 64px - 40px) !important;
   }
 }
 
