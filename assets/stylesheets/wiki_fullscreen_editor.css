@@ -39,6 +39,14 @@ html:has(.jstBlock.fullscreen) {
 #main:has(.jstBlock.side-by-side) ~ #ajax-indicator {
   display: none !important;
 }
+.jstBlock.fullscreen:not(.side-by-side) {
+  .jstEditor {
+    textarea.wiki-edit,
+    .wiki-preview {
+      width: 100% !important;
+    }
+  }
+}
 .jstBlock.fullscreen {
   position: fixed !important;
   box-sizing: border-box !important;
@@ -63,7 +71,6 @@ html:has(.jstBlock.fullscreen) {
 
     textarea.wiki-edit,
     .wiki-preview {
-      width: 100% !important;
       height: 100% !important;
       box-sizing: border-box !important;
       resize: none !important;
@@ -85,7 +92,17 @@ html:has(.jstBlock.fullscreen) {
 
       textarea.wiki-edit,
       .wiki-preview {
+        width: 50%;
         display: block !important;
+        left: 0 !important;
+      }
+
+      textarea.wiki-edit {
+        flex: 0 0 auto;
+      }
+
+      .wiki-preview {
+        flex: 1 1 auto;
       }
     }
   }
@@ -119,6 +136,26 @@ html:has(.jstBlock.fullscreen) {
     li:has(a.tab-preview.selected) + li.tab-preview-side-by-side {
       display: none;
     }
+  }
+}
+
+.wiki-fullscreen-resize-bar {
+  position: static !important;
+  cursor: e-resize;
+  width: 5px;
+  border-radius: 3px;
+  flex: 0 0 auto;
+
+  &:hover {
+    background-color: #759fcf99;
+  }
+}
+
+.jstEditor.resizing {
+  cursor: e-resize;
+
+  textarea {
+    cursor: e-resize;
   }
 }
 

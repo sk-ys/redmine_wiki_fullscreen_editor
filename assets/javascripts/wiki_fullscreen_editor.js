@@ -35,6 +35,35 @@
             setTimeout(updateWikiPreviewIfUpdated, 100);
           });
 
+        // Add dragable bar
+        let lastPositionX = null;
+        $("<div>")
+          .addClass("wiki-fullscreen-resize-bar")
+          .insertAfter($jstBlock.find("textarea.wiki-edit"))
+          .draggable({
+            axis: "x",
+            start: (e, ui) => {
+              lastPositionX = e.clientX;
+              $(e.target).parent().addClass("resizing");
+            },
+            drag: (e, ui) => {
+              if (lastPositionX === null) {
+                lastPositionX = e.clientX;
+                return;
+              }
+              const deltaX = e.clientX - lastPositionX;
+              lastPositionX = e.clientX;
+
+              // Update width
+              $jstBlock
+                .find("textarea.wiki-edit")
+                .width($jstBlock.find("textarea.wiki-edit").width() + deltaX);
+            },
+            stop: (e, ui) => {
+              $(e.target).parent().removeClass("resizing");
+            },
+          });
+
         // First invoke
         updateWikiPreviewIfUpdated();
       } else {
@@ -47,6 +76,7 @@
               .map((i) => i + ".ex-editor")
               .join(" ")
           )
+          .width("")
           .end()
           .find(".jstElements button")
           .off("click.ex-editor");
@@ -56,6 +86,9 @@
           .removeClass("side-by-side")
           .find(".tab-preview-side-by-side input[type=checkbox]")
           .prop("checked", false);
+
+        // Destroy resizable
+        $jstBlock.find(".wiki-fullscreen-resize-bar").remove();
 
         // Activate edit tab
         $jstBlock.find(".jstTabs a.tab-edit")[0].click();
