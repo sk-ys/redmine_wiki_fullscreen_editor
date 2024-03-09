@@ -131,6 +131,10 @@ html:has(.jstBlock.fullscreen) {
         width: auto;
         font-weight: normal;
       }
+
+      input[type="checkbox"] {
+        margin-left: 0 !important;
+      }
     }
 
     li:has(a.tab-preview.selected) + li.tab-preview-side-by-side {
