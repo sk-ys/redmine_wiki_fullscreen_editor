@@ -63,6 +63,9 @@
               $(e.target).parent().removeClass("resizing");
             },
           });
+          
+        // Set width 50%
+        $jstBlock.find("textarea.wiki-edit").width("50%");
 
         // First invoke
         updateWikiPreviewIfUpdated();
