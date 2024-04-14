@@ -89,6 +89,7 @@ html:has(.jstBlock.fullscreen) {
 
     .jstEditor {
       display: flex;
+      flex-direction: row !important;
 
       textarea.wiki-edit,
       .wiki-preview {
@@ -99,7 +100,7 @@ html:has(.jstBlock.fullscreen) {
       }
 
       textarea.wiki-edit {
-        flex: 0 0 auto;
+        flex: 0 0 auto !important;
       }
 
       .wiki-preview {
@@ -154,9 +155,9 @@ html:has(.jstBlock.fullscreen) {
 .wiki-fullscreen-resize-bar {
   position: static !important;
   cursor: e-resize;
-  width: 5px;
+  width: 5px !important;
   border-radius: 3px;
-  flex: 0 0 auto;
+  flex: 0 0 auto !important;
 
   &:hover {
     background-color: #759fcf99;
