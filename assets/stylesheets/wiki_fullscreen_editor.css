@@ -199,3 +199,9 @@ html:has(.jstBlock.fullscreen) {
 .tab-preview-side-by-side {
   display: none;
 }
+
+@media print {
+  #disable-wiki-fullscreen-editor-bar {
+    display: none;
+  }
+}
