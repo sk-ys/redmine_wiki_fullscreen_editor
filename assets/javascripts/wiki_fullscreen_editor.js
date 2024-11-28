@@ -63,7 +63,7 @@
               $(e.target).parent().removeClass("resizing");
             },
           });
-          
+
         // Set width 50%
         $jstBlock.find("textarea.wiki-edit").width("50%");
 
@@ -118,6 +118,28 @@
       },
     };
 
+    let collapsedState = [];
+    function backupCollapsedState() {
+      collapsedState = $(".collapsed-text")
+        .map((_, e) => $(e).is(":visible"))
+        .toArray();
+    }
+    function restoreCollapsedState() {
+      const $collapsedText = $(".collapsed-text");
+      if (
+        $collapsedText.length > 0 &&
+        collapsedState.length === $collapsedText.length
+      ) {
+        $collapsedText.each((i, e) => {
+          if (collapsedState[i]) {
+            $(`#${e.id}-show`).hide();
+            $(`#${e.id}-hide`).show();
+            $(e).show();
+          }
+        });
+      }
+    }
+
     function setupWikiPreviewSideBySide($jstBlock) {
       let underInquiry = false;
       let textBuffer = "";
@@ -128,6 +150,8 @@
           .find(".attachments_fields input")
           .serialize();
 
+        backupCollapsedState();
+
         return $.ajax({
           url: $jstBlock.find(".tab-preview").data("url"),
           type: "post",
@@ -135,6 +159,7 @@
         }).done(function (data) {
           $jstBlock.find(".wiki-preview").html(data);
           setupWikiTableSortableHeader();
+          restoreCollapsedState();
         });
       }
 
