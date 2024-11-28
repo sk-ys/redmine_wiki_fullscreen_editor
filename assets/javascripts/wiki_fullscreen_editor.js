@@ -219,19 +219,27 @@
       return b;
     };
 
-    // Add bar to disable full-screen for mobile
+    function disableFullScreenMode(e) {
+      const $jstBlock = $(".jstBlock.fullscreen");
+      if ($jstBlock.length) {
+        enableWikiPreviewSideBySide(false, $jstBlock);
+        $jstBlock.removeClass("fullscreen");
+        e?.preventDefault();
+      }
+    }
+
     $(() => {
+      // Add bar to disable full-screen for mobile
       $("<div>")
         .attr("id", "disable-wiki-fullscreen-editor-bar")
-        .on("click", () => {
-          $jstBlock = $(".jstBlock.fullscreen");
-          if ($jstBlock.length > 0) {
-            enableWikiPreviewSideBySide(false, $jstBlock);
-            $jstBlock.removeClass("fullscreen");
-          }
-        })
+        .on("click", disableFullScreenMode)
         .append($("<span>").text(resources.text.disableFullscreenMode))
         .appendTo("#wrapper");
+
+      // Leave fullscreen mode with the ESC key
+      $(document).on("keydown", (e) => {
+        if (e.key === "Escape") disableFullScreenMode(e);
+      });
     });
   })();
 })();
