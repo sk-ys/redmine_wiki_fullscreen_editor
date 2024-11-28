@@ -219,13 +219,14 @@
       return b;
     };
 
-    function disableFullScreenMode(e) {
+    function disableFullScreenMode() {
       const $jstBlock = $(".jstBlock.fullscreen");
       if ($jstBlock.length) {
         enableWikiPreviewSideBySide(false, $jstBlock);
         $jstBlock.removeClass("fullscreen");
-        e?.preventDefault();
+        return true;
       }
+      return false;
     }
 
     $(() => {
@@ -238,7 +239,9 @@
 
       // Leave fullscreen mode with the ESC key
       $(document).on("keydown", (e) => {
-        if (e.key === "Escape") disableFullScreenMode(e);
+        if (e.key === "Escape" && disableFullScreenMode()) {
+          e.preventDefault();
+        }
       });
     });
   })();
