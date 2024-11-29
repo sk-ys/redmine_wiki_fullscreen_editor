@@ -13,7 +13,8 @@ Other versions are untested.
 ### When using git
 1. Clone this repository to your Redmine plugins directory.
     ```
-    git clone https://github.com/sk-ys/redmine_wiki_fullscreen_editor.git YOUR_REDMINE_DIRECTORY/plugins/redmine_wiki_fullscreen_editor
+    cd YOUR_REDMINE_DIRECTORY/plugins
+    git clone https://github.com/sk-ys/redmine_wiki_fullscreen_editor.git
     ```
 2. Restart Redmine.
 
