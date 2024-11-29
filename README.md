@@ -1,7 +1,7 @@
 # Redmine Wiki Fullscreen Editor
 This is a plugin for Redmine.  
-This plugin adds full-screen feature to the wiki editor and adds a button to jsToolBar.  
-Additionally, enabling side-by-side mode allows for instant preview.
+It adds a full-screen mode to the wiki editor and a button to the jsToolBar.  
+In full-screen mode, enabling side-by-side mode provides an instant preview.  
 ![](doc/image.png)
 
 ## Compatibility
