@@ -146,7 +146,7 @@
 
       function updateWikiPreview() {
         var element = encodeURIComponent($jstBlock.find(".wiki-edit").val());
-        var attachments = $("#issue-form")
+        var attachments = $("#add_attachments")
           .find(".attachments_fields input")
           .serialize();
 
