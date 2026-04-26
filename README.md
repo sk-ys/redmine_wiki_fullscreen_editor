@@ -6,7 +6,7 @@ In full-screen mode, enabling side-by-side mode provides an instant preview.
 
 ## Compatibility
 
-Only Redmine v5.1.1 has been tested.  
+Redmine v5.1.1 and v6.1 have been tested.  
 Other versions are untested.
 
 ## Installation
