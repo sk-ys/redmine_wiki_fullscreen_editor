@@ -23,7 +23,7 @@ html:has(.jstBlock.fullscreen) {
     z-index: 100;
   }
 
-  #header {
+  #header, #sticky-issue-header {
     display: none !important;
   }
 
